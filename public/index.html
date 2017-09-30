@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HM Arbetsprov - Teemu Kallio</title>
+	<!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<!--[if lte IE 9]>
+	    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+	<div class="container" id="search-page">
+		<div class="row">
+			<div class="panel hm-search-panel col-sm-6 col-sm-offset-3">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="sr-only">search</span></h3>
+				</div>
+				<div class="panel-body">
+					<form class="form form-search" id="formSearch1" autocomplete="off">
+						<div class="form-group">
+							<label class="sr-only" for="search1">Search for city</label>
+							<div class="input-group">
+					  			<div class="input-group-addon"><span class="svg-icon-search"></span></div>
+					    		<input type="text" class="form-control input-search" id="search1" placeholder="Search me some starships!">
+					    		<div class="input-group-background"></div>
+					  		</div>
+					  		<div class="autocomplete-container"></div>
+						</div>
+					</form>
+					<div class="query-results-container"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- scripts -->
+	<script src="js/main.js"></script>
+</body>
+</html>
+
