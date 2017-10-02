@@ -15,16 +15,16 @@ var config = {
 }
 
 gulp.task('js', function() {
-	return gulp.src(mainBowerFiles().concat(config.jsPath+'/*'))
+	return gulp.src(mainBowerFiles())
 		.pipe(filter('**/*.js'))
-		.pipe(concat('main.js'))
+		.pipe(concat('rest.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest(config.outputDir + '/js'));
 });
 
-gulp.task('icons', function() { 
-	return gulp.src(config.bowerDir + '/font-awesome/fonts/**.*') 
-		.pipe(gulp.dest(config.outputDir + '/fonts')); 
+gulp.task('jsmain', function() {
+	return gulp.src(config.jsPath+'/main.js')
+		.pipe(gulp.dest(config.outputDir + '/js'));
 });
 
 gulp.task('css', function() {
@@ -44,8 +44,8 @@ gulp.task('css', function() {
 gulp.task('watch', function(){
 	gulp.watch([config.stylesPath + '**/*.scss', config.stylesPath + '**/*.sass', config.stylesPath + '**/*.css'], ['css']);
 
-	gulp.watch([config.jsPath + '**/*.js'], ['js']);
+	gulp.watch([config.jsPath + '**/*.js'], ['js'], ['jsmain']);
 
 })
 
-gulp.task('default', ['js', 'css', 'icons']);
+gulp.task('default', ['js', 'jsmain', 'css']);
