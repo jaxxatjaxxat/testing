@@ -14,5 +14,4 @@
 2. cd into directory and run bower install && npm install.
 3. Run gulp to compile Sass and JS.
 4. Open public/index.html in browser.
-(Added for developing purposes)
-5. Run gulp watch to monitor your JS and SASS.
+5. Run gulp watch to monitor your JS and SASS. (For developing purposes)
