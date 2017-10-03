@@ -15,16 +15,16 @@ var config = {
 }
 
 gulp.task('js', function() {
-	return gulp.src(mainBowerFiles())
+	return gulp.src(mainBowerFiles().concat(config.jsPath+'/*'))
 		.pipe(filter('**/*.js'))
-		.pipe(concat('rest.js'))
+		.pipe(concat('main.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest(config.outputDir + '/js'));
 });
 
-gulp.task('jsmain', function() {
-	return gulp.src(config.jsPath+'/main.js')
-		.pipe(gulp.dest(config.outputDir + '/js'));
+gulp.task('copyfonts', function() {
+	return gulp.src(config.bowerDir + '/bootstrap-sass/assets/fonts/bootstrap/*.{ttf,woff,eot,svg,woff2}')
+		.pipe(gulp.dest(config.outputDir + '/fonts/bootstrap'));
 });
 
 gulp.task('css', function() {
@@ -41,11 +41,11 @@ gulp.task('css', function() {
 		.pipe(gulp.dest(config.outputDir + '/css'));
 });
 
-gulp.task('watch', function(){
+gulp.task('watch', function() {
 	gulp.watch([config.stylesPath + '**/*.scss', config.stylesPath + '**/*.sass', config.stylesPath + '**/*.css'], ['css']);
 
-	gulp.watch([config.jsPath + '**/*.js'], ['js'], ['jsmain']);
+	gulp.watch([config.jsPath + '**/*.js'], ['js']);
 
 })
 
-gulp.task('default', ['js', 'jsmain', 'css']);
+gulp.task('default', ['js', 'css', 'copyfonts']);

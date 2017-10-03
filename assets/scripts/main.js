@@ -85,7 +85,7 @@
                 "<span class='col-sm-6'><span>" + listOfSelectionsArray[i].title + "</span></span>" +
                 "<span class='col-sm-6'>" + listOfSelectionsArray[i].timestamp + "</span>" +
                 "</div>" +
-				"<div class='delete-button'>" +
+				"<div role='button' class='delete-button'>" +
 				"<span class='glyphicon glyphicon-remove'></span>" +
 				"</div>" +
                 "</li>";
