@@ -50,7 +50,6 @@
 		
 		//Check if value passed from inputfield is also found in queried data
 		if (!isInputValueValid) {
-			console.log("no value or value not found in queried data");
 			return;
 		}
 		
@@ -92,9 +91,9 @@
 	function searchTerms(thisInputSearch, i) {
 		var partialSearchResultsContainer = thisInputSearch.parentNode.nextElementSibling;
 
-		//Remove list of suggestions if input field is empty
+		//Remove partialSearchResultsList if input field is empty
 		if (!thisInputSearch.value) {
-			partialSearchResultsContainer.innerHTML = "";
+			removePartialResultsListAndBorderRadiusClass(partialSearchResultsContainer, page);
 			return;
 		}
 
@@ -129,7 +128,7 @@
 		if (filtered && filtered.length) {
 			setPartialSearchResultHTML(filtered, partialSearchResultsContainer, thisInputSearch);
 		} else {
-			console.log('no results found');
+			removePartialResultsListAndBorderRadiusClass(partialSearchResultsContainer, page);
 			return;
 		}
 	}
@@ -159,11 +158,16 @@
 			partialSearchResultsContainerList[i].addEventListener("click", function() {
 				thisInputSearch.value = this.innerText;
 				thisInputSearch.focus();
-				partialSearchResultsContainer.innerHTML = "";
-				page.classList.remove("results-container-open");
+				removePartialResultsListAndBorderRadiusClass(partialSearchResultsContainer, page);
 				isInputValueValid = true;
 			});
 		}
+	}
+
+	//Removes partialSearchResultsList & border radius class
+	function removePartialResultsListAndBorderRadiusClass(partialSearchResultsContainer, page) {
+		partialSearchResultsContainer.innerHTML = "";
+		page.classList.remove("results-container-open");
 	}
 }());
 
