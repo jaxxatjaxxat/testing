@@ -79,7 +79,7 @@
 		var out = "";
         
         out += "<ul>";
-		for (var i = 0 in listOfSelectionsArray) {
+        for (var i = 0; i < listOfSelectionsArray.length; i++) {
             out += "<li>" +
             	"<div class='clearfix'>" +
                 "<span class='col-sm-6'><span>" + listOfSelectionsArray[i].title + "</span></span>" +
