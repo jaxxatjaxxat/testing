@@ -4,10 +4,10 @@
 
 ### Installation
 
-#### Required:
-Gulp - https://gulpjs.com/
-Bower - https://bower.io/
-Node - https://nodejs.org/en/
+#### Required for installation steps to work:
+1. Gulp - https://gulpjs.com/
+2. Bower - https://bower.io/
+3. Node - https://nodejs.org/en/
 
 #### For testing:
 1. Clone this repo.
